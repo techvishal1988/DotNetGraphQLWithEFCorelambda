@@ -74,9 +74,10 @@ jobs:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-west-2
-          working-directory: ./OrganizationSolution/Source/App/Geography.Serverless
       - name: Configure AWS Credentials
+        working-directory: ./OrganizationSolution/Source/App/Geography.Serverless
         run: |
+          ls
           aws lambda update-function-configuration \
            --function-name Hackathon-Serverless-Api \
            --handler Geography.Serverless::Geography.Serverless.LambdaEntryPoint::FunctionHandlerAsync
