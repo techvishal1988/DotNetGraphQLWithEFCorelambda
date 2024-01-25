@@ -75,7 +75,7 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-west-2
       - name: Configure AWS Credentials
-        working-directory: ./home/runner/work/DotNetGraphQLWithEFCorelambda/DotNetGraphQLWithEFCorelambda/OrganizationSolution/Source/App/Geography.Serverless
+        working-directory: ./OrganizationSolution/Source/App/Geography.Serverless
         run: |
           ls
           pwd
