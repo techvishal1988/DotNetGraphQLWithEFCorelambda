@@ -64,8 +64,24 @@ jobs:
     - name: Copy Artifact to S3
       run: aws s3 cp geography.zip s3://hackathondotnet1/      
     #- run: |
-    - name: Update Lambda Function Configuration
-      run: |
+  deploy-production:
+      runs-on: ubuntu-latest
+      needs: build
+      if: github.event_name != 'pull_request'
+      environment: production
+      steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Install kubectl
+        uses: azure/setup-kubectl@v2.0
+        with:
+          version: 'v1.24.0' # default is latest stable
+        id: install
+      - name: Configure AWS Credentials
+        run: |
+
+      - name: Update Lambda Function Configuration
+        run: |
           #secret_value=$(aws secretsmanager get-secret-value --secret-id arn:aws:secretsmanager:us-west-2:751111534101:secret:hackathonSecretManager-czMRXK --query 'SecretString' --output text)
           #echo "Secret Value: $secret_value"
           #secret_variable1=$(echo "$secret_value" | jq -r '.DBConnectionSring')
