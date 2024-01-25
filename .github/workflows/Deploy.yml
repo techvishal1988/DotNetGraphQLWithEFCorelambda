@@ -72,7 +72,7 @@ jobs:
           #secret_variable2=$(echo "$secret_value" | jq -r '.variable2')
           aws lambda update-function-configuration \
            --function-name Hackathon-Serverless-Api \
-           --handler Geography.Serverless::Geography.Serverless.LambdaEntryPoint::FunctionHandlerAsync \
+           --handler Geography.Serverless::Geography.Serverless.LambdaEntryPoint::FunctionHandlerAsync
            #--environment Variables="{Application__ConnectionString=$secret_variable1}"
            #--environment Variables="{Application__ConnectionString=$AWSConfigurationOptions__DbConnectionString}"
 
