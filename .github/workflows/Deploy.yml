@@ -2,6 +2,9 @@ name: .NET
 on:
   push:
     branches: [ main ]
+defaults:
+  run:
+    working-directory: ./OrganizationSolution/Source/App/Geography.Serverless
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -74,6 +77,7 @@ jobs:
           aws-region: us-west-2
       - name: Configure AWS Credentials
         run: |
+          working-directory: ./OrganizationSolution/Source/App/Geography.Serverless
           aws lambda update-function-configuration \
            --function-name Hackathon-Serverless-Api \
            --handler Geography.Serverless::Geography.Serverless.LambdaEntryPoint::FunctionHandlerAsync
