@@ -62,7 +62,7 @@ jobs:
            rm -rf publish/
            zip -r geography.zip ./*
     - name: Copy Artifact to S3
-      run: aws s3 cp geography.zip s3://hackathondotnet/      
+      run: aws s3 cp geography.zip s3://hackathondotnet1/      
     #- run: |
     - name: Update Lambda Function Configuration
       run: |
