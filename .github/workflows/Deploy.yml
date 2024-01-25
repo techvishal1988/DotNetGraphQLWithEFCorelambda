@@ -77,7 +77,7 @@ jobs:
           aws-region: us-west-2
       - name: Configure AWS Credentials
         run: |
-          cd OrganizationSolution/Source/App/Geography.Serverless
+          ./OrganizationSolution/Source/App/Geography.Serverless
           aws lambda update-function-configuration \
            --function-name Hackathon-Serverless-Api \
            --handler Geography.Serverless::Geography.Serverless.LambdaEntryPoint::FunctionHandlerAsync
