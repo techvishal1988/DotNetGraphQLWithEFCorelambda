@@ -69,13 +69,12 @@ jobs:
       if: github.event_name != 'pull_request'
       environment: production         
       steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-      - name: Install kubectl
-        uses: azure/setup-kubectl@v2.0
+      - uses: aws-actions/configure-aws-credentials@v1
         with:
-          version: 'v1.24.0' # default is latest stable
-        id: install
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-west-2
+          working-directory: ./OrganizationSolution/Source/App/Geography.Serverless
       - name: Configure AWS Credentials
         run: |
           aws lambda update-function-configuration \
