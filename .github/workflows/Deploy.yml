@@ -66,17 +66,17 @@ jobs:
     #- run: |
     - name: Update Lambda Function Configuration
       run: |
-          secret_value=$(aws secretsmanager get-secret-value --secret-id arn:aws:secretsmanager:us-west-2:751111534101:secret:hackathonSecretManager-czMRXK --query 'SecretString' --output text)
-          echo "Secret Value: $secret_value"
-          secret_variable1=$(echo "$secret_value" | jq -r '.DBConnectionSring')
+          #secret_value=$(aws secretsmanager get-secret-value --secret-id arn:aws:secretsmanager:us-west-2:751111534101:secret:hackathonSecretManager-czMRXK --query 'SecretString' --output text)
+          #echo "Secret Value: $secret_value"
+          #secret_variable1=$(echo "$secret_value" | jq -r '.DBConnectionSring')
           #secret_variable2=$(echo "$secret_value" | jq -r '.variable2')
           aws lambda update-function-configuration \
            --function-name Hackathon-Serverless-Api \
            --handler Geography.Serverless::Geography.Serverless.LambdaEntryPoint::FunctionHandlerAsync \
-           --environment Variables="{Application__ConnectionString=$secret_variable1}"
+           #--environment Variables="{Application__ConnectionString=$secret_variable1}"
            #--environment Variables="{Application__ConnectionString=$AWSConfigurationOptions__DbConnectionString}"
 
           aws lambda update-function-code \
            --function-name Hackathon-Serverless-Api \
-          --s3-bucket hackathondotnet \
+          --s3-bucket hackathondotnet1 \
           --s3-key geography.zip
