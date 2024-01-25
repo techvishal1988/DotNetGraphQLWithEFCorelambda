@@ -1,1 +1,1 @@
-# DotNetGraphQLWithEFCore4
+# DotNetGraphQLWithEFCore4lambda
