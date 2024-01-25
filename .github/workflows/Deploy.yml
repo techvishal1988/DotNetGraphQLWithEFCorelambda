@@ -68,15 +68,11 @@ jobs:
       runs-on: ubuntu-latest
       needs: build
       if: github.event_name != 'pull_request'
-      environment: production
+      environment: production            
       steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-      - name: Install kubectl
-        uses: azure/setup-kubectl@v2.0
+      - uses: actions/checkout@v2
         with:
-          version: 'v1.24.0' # default is latest stable
-        id: install
+         dotnet-version: 6.0.x
       - name: Configure AWS Credentials
         run: |
           aws lambda update-function-configuration \
