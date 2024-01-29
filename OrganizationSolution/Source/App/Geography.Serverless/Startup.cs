@@ -53,7 +53,7 @@ public class Startup
             //endpoints.MapGraphQL<AppSchema>().RequireAuthorization();
             endpoints.MapGet("/", async context =>
             {
-                await context.Response.WriteAsync("Welcome to running ASP.NET Core on AWS Lambda 27th jan 2k24");
+                await context.Response.WriteAsync("Welcome to running ASP.NET Core on AWS Lambda 29th jan 2k24");
             });
         });
     }
