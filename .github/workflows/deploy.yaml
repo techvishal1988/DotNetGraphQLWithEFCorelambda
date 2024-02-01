@@ -43,7 +43,7 @@ jobs:
     - name: Publish
       run: |
            ls
-           dotnet publish -c Release -r linux-x64 -o publish
+           dotnet publish --no-restore --no-build -c Release -r linux-x64 -o publish
            ls publish
            dotnet lambda package
     - name: Upload to S3
