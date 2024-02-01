@@ -2,6 +2,8 @@ name: .NET
 on:
   push:
     branches: [ main ]
+    tags:
+      - '*'
 defaults:
   run:
     working-directory: ./OrganizationSolution/Source/App/Geography.Serverless
