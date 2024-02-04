@@ -63,14 +63,13 @@ jobs:
     - name: Copy Artifact to S3
       run: aws s3 cp geography.zip s3://hackathondotnet1/      
 
-  release:
+  trigger-workflow:
     runs-on: ubuntu-latest
-    needs: build
     steps:
-      - name: Fetching the deployment repo
+      - name: Trigger Another Repository Workflow
         uses: peter-evans/repository-dispatch@v2
         with:
-          event-type: build
+          token: ${{ secrets.REPO_ACCESS_TOKEN }}
           repository: techvishal1988/deployment
-          token: ${{ secrets.REPO_TOKEN }}
+          event-type: build
           client-payload: '{"env_name": "dev"}'
