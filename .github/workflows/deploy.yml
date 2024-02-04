@@ -86,4 +86,4 @@ jobs:
           event-type: build
           workflow: CD
           repository: techvishal1988/deployment
-          token: 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
+          token: ${{ secrets.REPO_TOKEN }}
