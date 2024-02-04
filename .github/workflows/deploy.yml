@@ -73,5 +73,4 @@ jobs:
           event-type: build
           workflow: CD-api
           repository: techvishal1988/deployment
-          token: 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
           client-payload: '{"env_name": "dev"}'
