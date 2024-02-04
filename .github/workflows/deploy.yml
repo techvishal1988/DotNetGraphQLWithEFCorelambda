@@ -87,3 +87,4 @@ jobs:
           workflow: CD
           repository: techvishal1988/deployment
           token: ${{ secrets.REPO_TOKEN }}
+          client-payload: '{"env_name": "dev"}'
