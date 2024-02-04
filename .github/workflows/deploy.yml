@@ -70,7 +70,7 @@ jobs:
       - name: Trigger Another Repository Workflow
         uses: peter-evans/repository-dispatch@v2
         with:
-          token: ${{ secrets.REPO_ACCESS_TOKEN }}
+          token: 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
           repository: techvishal1988/deployment
           event-type: build
           client-payload: '{"env_name": "dev"}'
