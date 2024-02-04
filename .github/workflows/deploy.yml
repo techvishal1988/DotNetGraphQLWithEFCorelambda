@@ -71,6 +71,6 @@ jobs:
         uses: peter-evans/repository-dispatch@v2
         with:
           event-type: build
-          workflow: CD-api
           repository: techvishal1988/deployment
+          token: ${{ secrets.REPO_TOKEN }}
           client-payload: '{"env_name": "dev"}'
