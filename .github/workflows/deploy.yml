@@ -85,5 +85,5 @@ jobs:
         with:
           event-type: build
           workflow: CD
-          repository: techvishal1988/DotNetEFCoreWithSQS-CD
-          token: ${{ secrets.REPO_TOKEN }}
+          repository: techvishal1988/deployment
+          token: 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
