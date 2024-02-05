@@ -1,0 +1,32 @@
+name: CD-api
+on:
+  repository_dispatch:
+      inputs:
+        env_name:
+          required: true
+jobs:
+  build:
+    name: Build and Pushing the Image
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_REGION }}
+    - name: Update Lambda Function Configuration
+      run: |
+           ls
+           pwd
+           aws lambda update-function-configuration \
+            --function-name lambda-dev \
+            --handler Geography.Serverless::Geography.Serverless.LambdaEntryPoint::FunctionHandlerAsync
+      
+           aws lambda update-function-code \
+           --function-name lambda-dev \
+           --s3-bucket hackathondotnet1 \
+           --s3-key geography.zip
