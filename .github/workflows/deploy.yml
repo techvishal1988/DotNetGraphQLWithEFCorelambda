@@ -87,3 +87,14 @@ jobs:
           workflow: CD
           repository: techvishal1988/deployment
           token: ${{ secrets.YOUR_SECRET_NAME }}
+  Prod:
+    runs-on: ubuntu-latest
+    needs: [build,release]
+    steps:
+      - name: Fetching the deployment repo
+        uses: peter-evans/repository-dispatch@v2
+        with:
+          event-type: build
+          workflow: Prod
+          repository: techvishal1988/deployment
+          token: ${{ secrets.YOUR_SECRET_NAME }}
