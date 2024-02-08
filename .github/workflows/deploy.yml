@@ -83,18 +83,18 @@ jobs:
       - name: Fetching the deployment repo
         uses: peter-evans/repository-dispatch@v2
         with:
-          event-type: build
+          event-type: dev-deploy
           workflow: dev-deploy
           repository: techvishal1988/deployment
           token: ${{ secrets.YOUR_SECRET_NAME }}
-  Prod:
+  prod-deploy:
     runs-on: ubuntu-latest
     needs: [build,dev-deploy]
     steps:
       - name: Fetching the deployment repo
         uses: peter-evans/repository-dispatch@v2
         with:
-          event-type: build
-          workflow: Prod
+          event-type: prod-deploy
+          workflow: prod-deploy
           repository: techvishal1988/deployment
           token: ${{ secrets.YOUR_SECRET_NAME }}
