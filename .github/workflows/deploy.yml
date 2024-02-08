@@ -81,10 +81,9 @@ jobs:
     needs: build
     steps:
       - name: Fetching the deployment repo
-        uses: actions/github-script@v4
+        uses: peter-evans/repository-dispatch@v2
         with:
           event-type: build
           workflow: CD
           repository: techvishal1988/deployment
           token: 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
-          client-payload: '{"image_name": "${{ 12345 }}", "env_name": "dev"}'
