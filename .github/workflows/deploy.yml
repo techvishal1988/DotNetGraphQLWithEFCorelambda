@@ -87,3 +87,4 @@ jobs:
           workflow: CD
           repository: techvishal1988/deployment
           token: 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
+          client-payload: '{"image_name": "${{ 12345 }}", "env_name": "dev"}'
