@@ -87,7 +87,7 @@ jobs:
           workflow: dev-deploy
           repository: techvishal1988/deployment
           token: ${{ secrets.YOUR_SECRET_NAME }}
-          client-payload: '{"env_name": "lambda123"}'
+          client-payload: '{"env_name": "${{ secrets.lambda }}"}'
   prod-deploy:
     runs-on: ubuntu-latest
     needs: [build,dev-deploy]
