@@ -101,4 +101,4 @@ jobs:
           workflow: prod-deploy
           repository: techvishal1988/deployment
           token: ${{ secrets.YOUR_SECRET_NAME }}
-          client-payload: '{"env_name": "Hackathon-Serverless-Api"}'
+          client-payload: '{"env_name": "${{ secrets.lambda }}"}'
